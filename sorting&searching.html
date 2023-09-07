@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insertion Sort</title>
+    <style>
+        /* need to add little bit of styling with css  */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #originalArray, #sortedArray {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Insertion Sort</h1>
+    
+    <!-- Display original and sorted arrays -->
+    <div id="originalArray">Original Array: [12, 11, 13, 5, 6]</div>
+    <div id="sortedArray">Sorted Array: </div>
+
+    <script>
+        // Function to perform insertion sort
+        function insertionSort(arr) {
+            for (let i = 1; i < arr.length; i++) {
+                let currentElement = arr[i];
+                let j = i - 1;
+                while (j >= 0 && arr[j] > currentElement) {
+                    arr[j + 1] = arr[j];
+                    j--;
+                }
+                arr[j + 1] = currentElement;
+            }
+        }
+
+        // Initial unsorted array
+        const originalArray = [12, 11, 13, 5, 6];
+
+        // Call insertion sort function to sort the array
+        insertionSort(originalArray);
+
+        // Display the sorted array
+        const sortedArrayDiv = document.getElementById('sortedArray');
+        sortedArrayDiv.textContent = 'Sorted Array: [' + originalArray.join(', ') + ']';
+    </script>
+</body>
+</html>
